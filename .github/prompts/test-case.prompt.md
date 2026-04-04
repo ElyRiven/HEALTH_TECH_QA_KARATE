@@ -189,5 +189,4 @@ IMPORTANTE: Haz que esta sea EL PRIMER ESCENARIO en ejecutarse, ya que requiere 
 ## Objetivo
 
 Debes crear la automatización de estos escenarios mediante Karate DSL, generando los escenarios, sus pasos en Gherkin haciendo uso de sus palabras clave (GIVEN, WHEN, THEN, AND, etc) con la sintaxis propia de Karate, sus datos de prueba en archivos .json e implementar el código necesario en los diferentes directorios del proyecto.
-Optimiza el proyecto para su correcta ejecución en el pipeline de CI/CD en el que se va a implementar mediante Github Actions.
 Finalmente debes asegurar que el proyecto permita la ejecución correcta de las pruebas y la generación del reporte HTML de Karate con los resultados de los escenarios y sus pasos de ejecución.

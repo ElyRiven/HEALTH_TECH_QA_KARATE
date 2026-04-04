@@ -27,11 +27,23 @@ sourceSets {
 }
 
 test {
-    useJUnitPlatform()    
-    systemProperty 'karate.env', System.properties.getProperty('karate.env', 'dev')    
+    useJUnitPlatform()
+    systemProperty 'karate.env', System.properties.getProperty('karate.env', 'dev')
     outputs.upToDateWhen { false }
+    maxParallelForks = 1
+    filter {
+        includeTestsMatching 'healthtech.HealthTechSuiteRunner'
+    }
     testLogging {
         showStandardStreams = true
         events "passed", "skipped", "failed"
+    }
+    jvmArgs '-Dfile.encoding=UTF-8'
+}
+
+tasks.withType(Test).configureEach {
+    reports {
+        html.required = true
+        junitXml.required = true
     }
 }

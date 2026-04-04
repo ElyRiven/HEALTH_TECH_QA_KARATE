@@ -1,0 +1,29 @@
+{
+  "valid_patient": {
+    "identificacion": 1002003000,
+    "nombres": "Datos Prueba",
+    "apellidos": "Datos Prueba",
+    "fecha_de_nacimiento": "1990-05-15",
+    "genero": "femenino",
+    "estado": "En espera"
+  },
+  "duplicate_patient": {
+    "identificacion": 1002003000,
+    "nombres": "Otro Paciente",
+    "apellidos": "Otro Apellido",
+    "fecha_de_nacimiento": "1985-03-22",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
+  "patient_for_get_by_id": {
+    "identificacion": 1002003010,
+    "nombres": "Consulta Prueba",
+    "apellidos": "Consulta Apellido",
+    "fecha_de_nacimiento": "1992-07-10",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
+  "empty_patient": {},
+  "nonexistent_patient_id": 88887,
+  "invalid_patient_id": "abc"
+}

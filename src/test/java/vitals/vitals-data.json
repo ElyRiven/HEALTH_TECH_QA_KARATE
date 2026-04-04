@@ -1,0 +1,50 @@
+{
+  "valid_vitals": {
+    "frecuencia_cardiaca": 72,
+    "frecuencia_respiratoria": 16,
+    "saturacion_o2": 98.0,
+    "temperatura": 36.8,
+    "presion": "118/76",
+    "nivel_de_conciencia": "Alerta",
+    "nivel_de_dolor": 1
+  },
+  "empty_vitals": {},
+  "missing_fields_vitals": {
+    "frecuencia_cardiaca": "",
+    "frecuencia_respiratoria": ""
+  },
+  "out_of_range_vitals": {
+    "frecuencia_cardiaca": 350,
+    "frecuencia_respiratoria": 70,
+    "saturacion_o2": 40.0,
+    "temperatura": 50.0,
+    "presion": "400/250",
+    "nivel_de_conciencia": "Alerta",
+    "nivel_de_dolor": 15
+  },
+  "patient_for_successful_vitals": {
+    "identificacion": 1002003100,
+    "nombres": "Paciente Vitales OK",
+    "apellidos": "Prueba Vitales",
+    "fecha_de_nacimiento": "1985-08-20",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
+  "patient_for_missing_fields": {
+    "identificacion": 1002003101,
+    "nombres": "Paciente Campos Faltantes",
+    "apellidos": "Prueba Missing",
+    "fecha_de_nacimiento": "1988-04-12",
+    "genero": "femenino",
+    "estado": "En espera"
+  },
+  "patient_for_out_of_range": {
+    "identificacion": 1002003102,
+    "nombres": "Paciente Fuera Rango",
+    "apellidos": "Prueba Rango",
+    "fecha_de_nacimiento": "1992-11-30",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
+  "nonexistent_patient_id": 88888
+}

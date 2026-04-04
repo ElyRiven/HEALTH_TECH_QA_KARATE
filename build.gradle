@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'com.intuit.karate:karate-junit5:1.4.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+sourceSets {
+    test {
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()    
+    systemProperty 'karate.env', System.properties.getProperty('karate.env', 'dev')    
+    outputs.upToDateWhen { false }
+    testLogging {
+        showStandardStreams = true
+        events "passed", "skipped", "failed"
+    }
+}

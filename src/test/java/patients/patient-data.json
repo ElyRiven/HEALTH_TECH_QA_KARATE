@@ -1,6 +1,6 @@
 {
   "valid_patient": {
-    "identificacion": 1002003000,
+    "identificacion": "1002003000",
     "nombres": "Datos Prueba",
     "apellidos": "Datos Prueba",
     "fecha_de_nacimiento": "1990-05-15",
@@ -8,7 +8,7 @@
     "estado": "En espera"
   },
   "duplicate_patient": {
-    "identificacion": 1002003000,
+    "identificacion": "1002003000",
     "nombres": "Otro Paciente",
     "apellidos": "Otro Apellido",
     "fecha_de_nacimiento": "1985-03-22",
@@ -16,14 +16,31 @@
     "estado": "En espera"
   },
   "patient_for_get_by_id": {
-    "identificacion": 1002003010,
+    "identificacion": "1002003010",
     "nombres": "Consulta Prueba",
     "apellidos": "Consulta Apellido",
     "fecha_de_nacimiento": "1992-07-10",
     "genero": "masculino",
     "estado": "En espera"
   },
+  "patient_with_short_id": {
+    "identificacion": "ABC123",
+    "nombres": "Test Paciente",
+    "apellidos": "Test Apellido",
+    "fecha_de_nacimiento": "1990-01-01",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
+  "patient_with_invalid_chars_id": {
+    "identificacion": "test.12345",
+    "nombres": "Test Paciente",
+    "apellidos": "Test Apellido",
+    "fecha_de_nacimiento": "1990-01-01",
+    "genero": "masculino",
+    "estado": "En espera"
+  },
   "empty_patient": {},
-  "nonexistent_patient_id": 88887,
-  "invalid_patient_id": "abc"
+  "nonexistent_patient_id": "XY99999999",
+  "short_patient_id": "ABC123",
+  "invalid_chars_patient_id": "lowertest1"
 }

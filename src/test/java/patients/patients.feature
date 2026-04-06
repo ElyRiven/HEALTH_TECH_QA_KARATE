@@ -44,7 +44,7 @@ Feature: Patients API - HealthTech Backend
     When method POST
     Then status 400
     And match response.message == 'Error de validación'
-    And match response.errors.identificacion == 'El id debe ser un número'
+    And match response.errors.identificacion == 'El parámetro pacientId debe tener 10 caracteres'
     And match response.errors.nombres == 'Debe escribir tus nombres'
     And match response.errors.apellidos == 'Debe escribir tus apellidos'
     And match response.errors.fecha_de_nacimiento == 'Debe tener un formato de yyyy-MM-dd'
@@ -73,11 +73,33 @@ Feature: Patients API - HealthTech Backend
     Then status 404
     And match response.message == 'Paciente no encontrado'
 
-  Scenario: Get error when querying a patient with an invalid ID
-    Given path patientsEndpoint, patientData.invalid_patient_id
+  Scenario: Get error when querying a patient with an ID shorter than expected
+    Given path patientsEndpoint, patientData.short_patient_id
     When method GET
     Then status 400
-    And match response.message == 'El id debe ser un número entero válido'
+    And match response.message == 'El parámetro pacientId debe tener 10 caracteres'
+
+  Scenario: Get error when querying a patient with invalid characters in the ID
+    Given path patientsEndpoint, patientData.invalid_chars_patient_id
+    When method GET
+    Then status 400
+    And match response.message == 'El parámetro pacientId debe contener solo números y letras mayúsculas'
+
+  Scenario: Get error when creating a patient with an identification shorter than expected
+    Given path patientsEndpoint
+    And request patientData.patient_with_short_id
+    When method POST
+    Then status 400
+    And match response.message == 'Error de validación'
+    And match response.errors.identificacion == 'El parámetro pacientId debe tener 10 caracteres'
+
+  Scenario: Get error when creating a patient with invalid characters in the identification
+    Given path patientsEndpoint
+    And request patientData.patient_with_invalid_chars_id
+    When method POST
+    Then status 400
+    And match response.message == 'Error de validación'
+    And match response.errors.identificacion == 'El parámetro pacientId debe contener solo números y letras mayúsculas'
 
   Scenario: Get list of patients with registered vital signs sorted by criticality
     # Create a patient and register vitals to ensure the list is populated
@@ -100,4 +122,4 @@ Feature: Patients API - HealthTech Backend
     When method GET
     Then status 200
     And match response == '#array'
-    And match response[0] == { identificacion: '#number', nombres: '#string', apellidos: '#string', fecha_de_nacimiento: '#string', genero: '#string', criticidad: '#number', hora_de_registro: '#string', estado: '#string' }
+    And match response[0] == { identificacion: '#string', nombres: '#string', apellidos: '#string', fecha_de_nacimiento: '#string', genero: '#string', criticidad: '#number', hora_de_registro: '#string', estado: '#string' }

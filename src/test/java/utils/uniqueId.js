@@ -1,3 +1,8 @@
 function fn() {
-  return Math.floor(Math.random() * 900000000) + 100000000;
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  var result = '';
+  for (var i = 0; i < 10; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
 }

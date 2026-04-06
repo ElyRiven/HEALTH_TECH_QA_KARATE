@@ -45,6 +45,20 @@ Feature: Vitals API - HealthTech Backend
     Then status 404
     And match response.message == 'El paciente con Id enviado no fue encontrado'
 
+  Scenario: Get error when creating vital signs with a patient ID shorter than expected
+    Given path vitalsEndpoint, vitalsData.short_vitals_patient_id
+    And request vitalsData.valid_vitals
+    When method POST
+    Then status 400
+    And match response.message == 'El parámetro pacientId debe tener 10 caracteres'
+
+  Scenario: Get error when creating vital signs with invalid characters in the patient ID
+    Given path vitalsEndpoint, vitalsData.invalid_chars_vitals_patient_id
+    And request vitalsData.valid_vitals
+    When method POST
+    Then status 400
+    And match response.message == 'El parámetro pacientId debe contener solo números y letras mayúsculas'
+
   Scenario: Get error when creating vital signs with values outside valid ranges
     # Create a patient with a unique ID
     * def uniqueId = karate.call('classpath:utils/uniqueId.js')

@@ -23,7 +23,7 @@
     "nivel_de_dolor": 15
   },
   "patient_for_successful_vitals": {
-    "identificacion": 1002003100,
+    "identificacion": "1002003100",
     "nombres": "Paciente Vitales OK",
     "apellidos": "Prueba Vitales",
     "fecha_de_nacimiento": "1985-08-20",
@@ -31,7 +31,7 @@
     "estado": "En espera"
   },
   "patient_for_missing_fields": {
-    "identificacion": 1002003101,
+    "identificacion": "1002003101",
     "nombres": "Paciente Campos Faltantes",
     "apellidos": "Prueba Missing",
     "fecha_de_nacimiento": "1988-04-12",
@@ -39,12 +39,14 @@
     "estado": "En espera"
   },
   "patient_for_out_of_range": {
-    "identificacion": 1002003102,
+    "identificacion": "1002003102",
     "nombres": "Paciente Fuera Rango",
     "apellidos": "Prueba Rango",
     "fecha_de_nacimiento": "1992-11-30",
     "genero": "masculino",
     "estado": "En espera"
   },
-  "nonexistent_patient_id": 88888
+  "nonexistent_patient_id": "ZZ88888888",
+  "short_vitals_patient_id": "ABC123",
+  "invalid_chars_vitals_patient_id": "ab12cd34ef"
 }
